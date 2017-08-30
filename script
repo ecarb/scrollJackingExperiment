@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ "$#" -ne 2 ]]; then
+  echo "Error: requires 2 arguments"
+  echo "USAGE: $0 <phantomJsScript> <outputFile>"
+  return 1
+fi
+
+phantomjs --web-security=no "$1" | grep '{' >> "$2"
+
+echo "donediddly"
